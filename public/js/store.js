@@ -2,20 +2,20 @@
 /*eslint-env browser */
 
 /**
- * Returns a string of information about a given historic site
- * @param {Object} data The historic site object
- * @return {String} An information string about the historic site
+ * Returns a string of information about a given store
+ * @param {Object} data The store object
+ * @return {String} An information string about the store
  */
 function buildContent( data ){
 	var website = data.website;
 	if (!website) {
 		//default to a google search if there is no known web site
-		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.site + " National Historic Site";
+		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.site;
 	}
 	var contentString = '<table class="table table-bordered">' +
 							'<tbody>' +
 								'<tr>' + 
-									'<th>Historic Site</th>' + 
+									'<th>Store</th>' + 
 									'<td><a href="' + website + '" target="_blank">' + data.site + ' </a>' + '</td>' +
 								'</tr>' +
 								'<tr>' + 
@@ -30,8 +30,8 @@ function buildContent( data ){
 
 
 /**
- * Plots information about a single historic site on a map
- * @param {Object} site A single historic site from the database
+ * Plots information about a single store on a map
+ * @param {Object} site A single store from the database
  */
 function plot(site){
 	if (!(site.latitude && site.longitude))
@@ -116,7 +116,7 @@ function showInfo(data) {
 
 	//create and style the map
 	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
-	var styledMapType = new google.maps.StyledMapType( styles, { name: 'National Historic Sites' } );
+	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood Stores' } );
     map.mapTypes.set('Styled', styledMapType);  
     
     //create popup window that will be used when clicking markers
