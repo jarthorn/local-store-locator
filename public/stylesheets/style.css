@@ -1,0 +1,67 @@
+@import url("serviceSpec.css");
+@import url("sample.css");
+
+body {
+  	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #3b4b54;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+		"Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #ffffff;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+	padding-left: 10%;
+	padding-right: 10%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.description {
+	padding-left: 50px;
+	padding-right: 50px;
+	text-align: center;
+}
+
+.blue {
+	color: #00aed1;
+}
+
+.btn {
+	width: 150px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.form-group label {
+	width: 8% !important;
+}
+
+.container {
+	background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px;
+    width: 560px;
+    margin: 0 auto;
+}
+
+.messageInfo {
+	padding: 0px 20px;
+	height: 20px;
+}
+
+.buttonContainer {
+	padding: 5px 20px;
+}
+
+table th{
+	word-break: break-all;
+    word-wrap: break-word;
+    width: 50%;
+}
+table td{
+	word-break: break-all;
+    word-wrap: break-word;
+    width: 50%;	
+}

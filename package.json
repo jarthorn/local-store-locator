@@ -1,0 +1,23 @@
+{
+  "name":"local-store-locator",
+  "version": "0.0.2",
+  "description": "Helps find local stores",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.15.2 ",
+    "ejs": "*",
+    "body-parser": "1.13.2",
+    "method-override": "2.3.3",
+    "morgan": "1.6.1",
+    "errorhandler": "1.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jarthorn/local-store-locator"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

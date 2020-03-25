@@ -1,0 +1,39 @@
+.title{
+	color: #555;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 20px;
+	width: 900px;
+	border-radius:3px;
+}
+
+.test{
+	color:red;
+}
+
+.background{
+	padding-top:20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	background: #FFDCDC;
+}
+
+.mapcontainer{
+	height: 540px;
+	border-radius: 5px;
+	min-width: 120px;
+	background: #ffffff;
+	padding: 10px;
+	box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+}
+
+.appcontainer{
+	width:800px;
+}
+
+.sportsmap{
+	width:100%; 
+	height:500px;
+}
