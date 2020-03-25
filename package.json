@@ -9,7 +9,7 @@
     "express": "4.15.2 ",
     "ejs": "*",
     "body-parser": "1.13.2",
-    "method-override": "2.3.3",
+    "method-override": "3.0.0",
     "morgan": "1.6.1",
     "errorhandler": "1.4.1"
   },
