@@ -126,7 +126,7 @@ function showInfo(data) {
     
     //plot each team on the map
     var that = {map: map, popup: popup};
-    data.TEST.elements.forEach(plot, that);
+    data.Master.elements.forEach(plot, that);
 }
 
 window.onload = function() {
