@@ -7,20 +7,20 @@
  * @return {String} An information string about the business
  */
 function buildContent( data ){
-	var website = data.website;
+	var website = data.Website;
 	if (!website) {
 		//default to a google search if there is no known web site
-		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.business;
+		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.Business;
 	}
 	var contentString = '<table class="table table-bordered">' +
 							'<tbody>' +
 								'<tr>' + 
 									'<th>Business</th>' +
-									'<td><a href="' + website + '" target="_blank">' + data.business + ' </a>' + '</td>' +
+									'<td><a href="' + website + '" target="_blank">' + data.Business + ' </a>' + '</td>' +
 								'</tr>' +
 								'<tr>' + 
 									'<th>What\'s available</th>' +
-									'<td>' + data.available+ '</td>' +
+									'<td>' + data.Available+ '</td>' +
 								'</tr>' +
 							'</tbody>' +
 						'<table>';
@@ -34,10 +34,10 @@ function buildContent( data ){
  * @param {Object} business A single business from the database
  */
 function plot(business){
-	if (!(business.latitude && business.longitude))
+	if (!(business.Latitude && business.Longitude))
 		return;
-	var position = new google.maps.LatLng ( business.latitude, business.longitude );
-	var weight = business["public"] === 'Yes' ? 10 : 5;//larger weight to businesss that are known to be open to the public
+	var position = new google.maps.LatLng ( business.Latitude, business.Longitude );
+	var weight = business["Open"] === 'Open' ? 10 : 5;//larger weight to businesss that are known to be open to the public
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
@@ -49,7 +49,7 @@ function plot(business){
 			strokeWeight: 2,
 			scale: weight   //pixels
 		},
-		title: business.business,
+		title: business.Business,
 		map: this.map
 	});
 	
