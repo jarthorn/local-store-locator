@@ -12,6 +12,8 @@ function buildContent( data ){
 		//default to a google search if there is no known web site
 		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.Business;
 	}
+	var details = data["What is available"] || data["Open?"]
+
 	var contentString = '<table class="table table-bordered">' +
 							'<tbody>' +
 								'<tr>' + 
@@ -20,7 +22,7 @@ function buildContent( data ){
 								'</tr>' +
 								'<tr>' + 
 									'<th>What\'s available</th>' +
-									'<td>' + data["What is available"] + '</td>' +
+									'<td>' + details + '</td>' +
 								'</tr>' +
 								'<tr>' +
 									'<th>Facebook</th>' +
