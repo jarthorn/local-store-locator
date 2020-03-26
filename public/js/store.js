@@ -116,7 +116,7 @@ function showInfo(data) {
 
 	//create and style the map
 	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
-	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood businesses' } );
+	var styledMapType = new google.maps.StyledMapType(styles);
     map.mapTypes.set('Styled', styledMapType);  
     
     //create popup window that will be used when clicking markers
