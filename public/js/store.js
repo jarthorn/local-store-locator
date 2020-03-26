@@ -110,7 +110,7 @@ function showInfo(data) {
     var mapOptions = {
 		mapTypeControlOptions: { mapTypeIds: [ 'Styled'] },
 		center: new google.maps.LatLng( 45.42153, -75.69 ),//start in ottawa
-		zoom: 7,
+		zoom: 10,
 		mapTypeId: 'Styled'
 	};
 
