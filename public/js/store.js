@@ -45,15 +45,16 @@ function plot(business){
 	if (!(business.Latitude && business.Longitude))
 		return;
 	var position = new google.maps.LatLng ( business.Latitude, business.Longitude );
-	var weight = business["Open"] === 'Open' ? 10 : 5;//larger weight to businesss that are known to be open to the public
+	var weight = business["Open"] === 'Open' ? 8 : 5;//larger weight to businesss that are known to be open to the public
+  var color = business["Open"] === 'Open' ? "#a31720" : "#4b4b4b"
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
 			path: google.maps.SymbolPath.CIRCLE,
 			fillOpacity: 0.7,
-			fillColor: "#a31720",
+			fillColor: color,
 			strokeOpacity: 0.9,
-			strokeColor: "#a31720",
+			strokeColor: color,
 			strokeWeight: 2,
 			scale: weight   //pixels
 		},
