@@ -12,33 +12,37 @@ function buildContent( data ){
 		//default to a google search if there is no known web site
 		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.Business;
 	}
-	var websiteText = '<a href="' + website + '" target="_blank">' + data.Business + ' </a>'
 	var details = data["What is available"] || data["Open?"]
-	var facebookText = ""
+	var facebookRow = ""
 	if (data.FacebookURL) {
-		facebookText = '<a href="' + data.FacebookURL + '" target="_blank"> (Facebook)</a>'
+		facebookRow =
+			'<tr>' +
+				'<th>Facebook</th>' +
+				'<td><a href="' + data.FacebookURL + '" target="_blank">Facebook</a></td>' +
+			'</tr>'
 	}
 
 	var contentString = '<table class="table table-bordered">' +
-							'<tbody>' +
-								'<tr>' + 
-									'<th>Business</th>' +
-									'<td>' + websiteText + facebookText + '</td>' +
-								'</tr>' +
-								'<tr>' +
-									'<th>What\'s available</th>' +
-									'<td>' + details + '</td>' +
-								'</tr>' +
-								'<tr>' +
-									'<th>Phone</th>' +
-									'<td>' + data.Phone + '</td>' +
-								'</tr>' +
-								'<tr>' +
-									'<th>Address</th>' +
-									'<td>' + data.Address + '</td>' +
-								'</tr>' +
-							'</tbody>' +
-						'<table>';
+		'<tbody>' +
+			'<tr>' +
+				'<th>Business</th>' +
+				'<td><a href="' + website + '" target="_blank">' + data.Business + ' </a></td>' +
+			'</tr>' +
+			'<tr>' +
+				'<th>What\'s available</th>' +
+				'<td>' + details + '</td>' +
+			'</tr>' +
+			'<tr>' +
+				'<th>Phone</th>' +
+				'<td>' + data.Phone + '</td>' +
+			'</tr>' +
+			'<tr>' +
+				'<th>Address</th>' +
+				'<td>' + data.Address + '</td>' +
+			'</tr>' +
+			facebookRow +
+		'</tbody>' +
+	'<table>';
 	
 	return contentString;
 }
@@ -117,7 +121,7 @@ function showInfo(data) {
     var mapOptions = {
 		mapTypeControlOptions: { mapTypeIds: [ 'Styled'] },
 		center: new google.maps.LatLng( 45.42153, -75.69 ),//start in ottawa
-		zoom: 11,
+		zoom: 12,
 		mapTypeId: 'Styled'
 	};
 
