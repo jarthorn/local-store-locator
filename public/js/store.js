@@ -12,25 +12,30 @@ function buildContent( data ){
 		//default to a google search if there is no known web site
 		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.Business;
 	}
+	var websiteText = '<a href="' + website + '" target="_blank">' + data.Business + ' </a>'
 	var details = data["What is available"] || data["Open?"]
+	var facebookText = ""
+	if (data.FacebookURL) {
+		facebookText = '<a href="' + data.FacebookURL + '" target="_blank"> (Facebook)</a>'
+	}
 
 	var contentString = '<table class="table table-bordered">' +
 							'<tbody>' +
 								'<tr>' + 
 									'<th>Business</th>' +
-									'<td><a href="' + website + '" target="_blank">' + data.Business + ' </a>' + '</td>' +
+									'<td>' + websiteText + facebookText + '</td>' +
 								'</tr>' +
-								'<tr>' + 
+								'<tr>' +
 									'<th>What\'s available</th>' +
 									'<td>' + details + '</td>' +
 								'</tr>' +
 								'<tr>' +
-									'<th>Facebook</th>' +
-									'<td>' + data.FacebookURL+ '</td>' +
+									'<th>Phone</th>' +
+									'<td>' + data.Phone + '</td>' +
 								'</tr>' +
 								'<tr>' +
-									'<th>Phone</th>' +
-									'<td>' + data.Phone+ '</td>' +
+									'<th>Address</th>' +
+									'<td>' + data.Address + '</td>' +
 								'</tr>' +
 							'</tbody>' +
 						'<table>';
