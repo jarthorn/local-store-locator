@@ -2,25 +2,25 @@
 /*eslint-env browser */
 
 /**
- * Returns a string of information about a given store
- * @param {Object} data The store object
- * @return {String} An information string about the store
+ * Returns a string of information about a given business
+ * @param {Object} data The business object
+ * @return {String} An information string about the business
  */
 function buildContent( data ){
 	var website = data.website;
 	if (!website) {
 		//default to a google search if there is no known web site
-		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.site;
+		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.business;
 	}
 	var contentString = '<table class="table table-bordered">' +
 							'<tbody>' +
 								'<tr>' + 
-									'<th>Store</th>' + 
-									'<td><a href="' + website + '" target="_blank">' + data.site + ' </a>' + '</td>' +
+									'<th>Business</th>' +
+									'<td><a href="' + website + '" target="_blank">' + data.business + ' </a>' + '</td>' +
 								'</tr>' +
 								'<tr>' + 
-									'<th>Description</th>' + 
-									'<td>' + data.description+ '</td>' +
+									'<th>What\'s available</th>' +
+									'<td>' + data.available+ '</td>' +
 								'</tr>' +
 							'</tbody>' +
 						'<table>';
@@ -30,14 +30,14 @@ function buildContent( data ){
 
 
 /**
- * Plots information about a single store on a map
- * @param {Object} site A single store from the database
+ * Plots information about a single business on a map
+ * @param {Object} business A single business from the database
  */
-function plot(site){
-	if (!(site.latitude && site.longitude))
+function plot(business){
+	if (!(business.latitude && business.longitude))
 		return;
-	var position = new google.maps.LatLng ( site.latitude, site.longitude );
-	var weight = site["public"] === 'Yes' ? 10 : 5;//larger weight to sites that are known to be open to the public
+	var position = new google.maps.LatLng ( business.latitude, business.longitude );
+	var weight = business["public"] === 'Yes' ? 10 : 5;//larger weight to businesss that are known to be open to the public
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
@@ -49,14 +49,14 @@ function plot(site){
 			strokeWeight: 2,
 			scale: weight   //pixels
 		},
-		title: site.site,
+		title: business.business,
 		map: this.map
 	});
 	
 
 	var that = this;
 	google.maps.event.addListener(marker, 'click', function() {
-		that.popup.setContent( buildContent(site) );
+		that.popup.setContent( buildContent(business) );
 		that.popup.open(that.map, marker);
 	});
 }
@@ -116,7 +116,7 @@ function showInfo(data) {
 
 	//create and style the map
 	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
-	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood Stores' } );
+	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood business' } );
     map.mapTypes.set('Styled', styledMapType);  
     
     //create popup window that will be used when clicking markers
@@ -124,12 +124,12 @@ function showInfo(data) {
     
     //plot each team on the map
     var that = {map: map, popup: popup};
-    data.sites.elements.forEach(plot, that);
+    data.test.elements.forEach(plot, that);
 }
 
 window.onload = function() {
 //    var spreadsheet = '1icgNyHLS6kuVONHgL473dgo4l-Dc4k7DqZnO564dnBw';  //hand crafted data set
-    var spreadsheet = '17Luid_Y-nWw0IazEApPHJUSHUo3UNQxa7NhzIbRhXk0';
+    var spreadsheet = '1asa5VMdHOr4LTOx34EPGxkN90Oy48niuPjCQu83cx_s';
     
     
     Tabletop.init({ key: spreadsheet, callback: showInfo});
