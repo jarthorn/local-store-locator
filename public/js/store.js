@@ -130,5 +130,5 @@ function showInfo(data) {
 window.onload = function() {
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1asa5VMdHOr4LTOx34EPGxkN90Oy48niuPjCQu83cx_s/edit?usp=sharing';
 
-  Tabletop.init({ key: spreadsheet, callback: showInfo});
+  Tabletop.init({ key: publicSpreadsheetUrl, callback: showInfo});
 };
