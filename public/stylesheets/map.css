@@ -16,12 +16,12 @@
 	padding-top:20px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 800px;
-	background: #FFDCDC;
+	width: 900px;
+	background: #FFFFF0;
 }
 
 .mapcontainer{
-	height: 540px;
+	height: 800px;
 	border-radius: 5px;
 	min-width: 120px;
 	background: #ffffff;
