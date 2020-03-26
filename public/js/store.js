@@ -7,7 +7,7 @@
  * @return {String} An information string about the business
  */
 function buildContent( data ){
-	var website = data.Website;
+	var website = data.WebsiteURL;
 	if (!website) {
 		//default to a google search if there is no known web site
 		website = "https://www.google.ca/?gws_rd=ssl#q=" + data.Business;
@@ -24,7 +24,7 @@ function buildContent( data ){
 								'</tr>' +
 								'<tr>' +
 									'<th>Facebook</th>' +
-									'<td>' + data.Facebook+ '</td>' +
+									'<td>' + data.FacebookURL+ '</td>' +
 								'</tr>' +
 								'<tr>' +
 									'<th>Phone</th>' +
