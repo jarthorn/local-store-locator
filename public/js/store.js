@@ -22,6 +22,14 @@ function buildContent( data ){
 									'<th>What\'s available</th>' +
 									'<td>' + data.Available+ '</td>' +
 								'</tr>' +
+								'<tr>' +
+									'<th>Facebook</th>' +
+									'<td>' + data.Facebook+ '</td>' +
+								'</tr>' +
+								'<tr>' +
+									'<th>Phone</th>' +
+									'<td>' + data.Phone+ '</td>' +
+								'</tr>' +
 							'</tbody>' +
 						'<table>';
 	
