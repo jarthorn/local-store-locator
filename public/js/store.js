@@ -47,17 +47,10 @@ function plot(business){
 	var position = new google.maps.LatLng ( business.Latitude, business.Longitude );
 	var weight = business["Open"] === 'Open' ? 8 : 5;//larger weight to businesss that are known to be open to the public
   var color = business["Open"] === 'Open' ? "#a31720" : "#141414"
+  var icon_path = business["Open"] === 'Open' ? "../images/open.svg" : "../images/closed.svg"
 	var marker = new google.maps.Marker({
 		position: position,
-		icon: {
-			path: google.maps.SymbolPath.CIRCLE,
-			fillOpacity: 0.7,
-			fillColor: color,
-			strokeOpacity: 0.9,
-			strokeColor: color,
-			strokeWeight: 2,
-			scale: weight   //pixels
-		},
+		icon: icon_path,
 		title: business.Business,
 		map: this.map
 	});
@@ -125,7 +118,7 @@ function showInfo(data) {
 
 	//create and style the map
 	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);	
-	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood business' } );
+	var styledMapType = new google.maps.StyledMapType( styles, { name: 'Neighbourhood businesses' } );
     map.mapTypes.set('Styled', styledMapType);  
     
     //create popup window that will be used when clicking markers
