@@ -46,7 +46,7 @@ function plot(business){
 		return;
 	var position = new google.maps.LatLng ( business.Latitude, business.Longitude );
 	var weight = business["Open"] === 'Open' ? 8 : 5;//larger weight to businesss that are known to be open to the public
-  var color = business["Open"] === 'Open' ? "#a31720" : "#4b4b4b"
+  var color = business["Open"] === 'Open' ? "#a31720" : "#141414"
 	var marker = new google.maps.Marker({
 		position: position,
 		icon: {
