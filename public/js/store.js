@@ -124,13 +124,11 @@ function showInfo(data) {
     
     //plot each team on the map
     var that = {map: map, popup: popup};
-    data.test.elements.forEach(plot, that);
+    data.TEST.elements.forEach(plot, that);
 }
 
 window.onload = function() {
-//    var spreadsheet = '1icgNyHLS6kuVONHgL473dgo4l-Dc4k7DqZnO564dnBw';  //hand crafted data set
-    var spreadsheet = '1asa5VMdHOr4LTOx34EPGxkN90Oy48niuPjCQu83cx_s';
-    
-    
-    Tabletop.init({ key: spreadsheet, callback: showInfo});
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1asa5VMdHOr4LTOx34EPGxkN90Oy48niuPjCQu83cx_s/edit?usp=sharing';
+
+  Tabletop.init({ key: spreadsheet, callback: showInfo});
 };
